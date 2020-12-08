@@ -1,0 +1,18 @@
+input 1
+input 2
+compar 1 0 53
+compar 2 0 53
+max 1 2 3
+min 1 2 2
+max 2 3 1
+divide 1 2 1
+max 1 2 3
+jifeq 1 0 50
+divide 2 1 2
+max 2 1 3
+jifeq 2 0 50
+jump 24
+output 3
+exit
+outexp
+exit

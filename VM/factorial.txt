@@ -1,0 +1,12 @@
+input 1
+assign 1 2
+compar 1 0 29
+jifeq 1 0 26
+mult 2 1 2
+decr 1 1
+jifeq 1 0 26
+jump 9
+output 2
+exit
+outexp
+exit

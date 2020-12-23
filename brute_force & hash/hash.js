@@ -2,6 +2,9 @@ let fs = require('fs');
 let arg = process.argv;
 let stack = new Array();
 let text1 = fs.readFileSync('ВойнаИМир.txt');
+
+tStart = new Date();
+
 text1 = text1.toString();
 let T = "война";
 let tHash = 0;
@@ -30,3 +33,6 @@ for (let j = T.length; j < text1.length; j++)
         }
     }   
 console.log(stack1);
+tFinish = new Date();
+console.log('Time');
+console.log(tFinish - tStart)

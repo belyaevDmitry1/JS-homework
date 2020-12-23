@@ -1,6 +1,7 @@
 let fs = require ('fs');
 let arg = process.argv;
 let S = fs.readFileSync('ВойнаИМир.txt');
+tStart = new Date();
 S=S.toString();
 let T="война";
 
@@ -13,3 +14,6 @@ for (let i = 0; i < S.length - T.length + 1; i++) {
         }
     }
 }
+tFinish = new Date();
+console.log('Time');
+console.log(tFinish - tStart)

@@ -1,6 +1,6 @@
 let fs = require ('fs');
 let arg = process.argv;
-let S = fs.readFileSync('vim.txt');
+let S = fs.readFileSync('ВойнаИМир.txt');
 S=S.toString();
 let T="война";
 

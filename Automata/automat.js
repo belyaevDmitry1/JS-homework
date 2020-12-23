@@ -3,6 +3,9 @@ let arg = process.argv;
 let S = fs.readFileSync('ВойнаИМир.txt');
 let T = "князь";
 m = T.length;
+
+tStart = new Date();
+
 alph = new Array()
 //Определяем алфавит строки T
 for (i = 0; i < m; i++)
@@ -40,3 +43,6 @@ for (let i = 0; i < S.length; i++) {
         console.log(i - position + 1);
     }
 }
+tFinish = new Date();
+console.log('Time');
+console.log(tFinish - tStart)

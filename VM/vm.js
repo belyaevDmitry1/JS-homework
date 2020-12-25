@@ -1,38 +1,37 @@
 let fs = require ('fs');
 let arg = process.argv;
 let mem = new Array();
-
+let readline = require('readline-sync');
 let text = fs.readFileSync('gcd.jss');
 text=text.toString();
 
 mem=text.split(/\r\n| /);
 
 
-for (let i=0;i<mem.length;i++)
-	console.log(i,mem[i]);
+
 ip=0;
 flag=true;
 while (flag)
 	 switch (mem[ip]) {
             case 'input':
-                let value = readsync.question('Entered value: ');
-                mem[mem[ip + 1]] = parseFloat(value);
-                ip += 2;
+                let number = readline.question('Введите число: ');
+                mem[mem[ip + 1]] = parseFloat(number);
+                ip += 3;
                 break;
             case 'output':
                 console.log(mem[mem[ip + 1]]);
                 ip += 2;
                 break;
             case 'set':
-                memory[mem[ip + 1]] = parseFloat(mem[ip + 2]);
+                mem[mem[ip + 1]] = parseFloat(mem[ip + 2]);
                 ip += 3;
                 break;
             case 'add':
-                memory[mem[ip + 3]] = mem[mem[ip + 1]] + mem[mem[ip + 2]];
+                mem[mem[ip + 3]] = mem[mem[ip + 1]] + mem[mem[ip + 2]];
                 ip += 4;
                 break;
             case 'sub':
-                mem[memory[ip + 3]] = mem[mem[ip + 1]] - mem[mem[ip + 2]];
+                mem[mem[ip + 3]] = mem[mem[ip + 1]] - mem[mem[ip + 2]];
                 ip += 4;
                 break;
             case 'mult':

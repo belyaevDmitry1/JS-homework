@@ -2,7 +2,7 @@ let fs = require ('fs');
 let arg = process.argv;
 let mem = new Array();
 
-let text = fs.readFileSync('nod.jss');
+let text = fs.readFileSync('gcd.jss');
 text=text.toString();
 
 mem=text.split(/\r\n| /);

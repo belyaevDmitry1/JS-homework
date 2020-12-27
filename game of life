@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<canvas id="myCanvas" width="600" height="600" style="border:5px solid #c3c3c3;">
+<canvas id="myCanvas" width="400" height="400" style="border:5px solid #c3c3c3;">
 </canvas>
 
 
@@ -12,7 +12,7 @@
 
 <script>
 //let time = 
-let fieldSize = 30;
+let fieldSize = 20;
 let cellSize = 20;
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");

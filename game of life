@@ -67,7 +67,7 @@ function doStep()
             ctx.fillStyle = "#000";
             ctx.fillRect(i * cellSize, j * cellSize, cellSize, cellSize);
 
-        } else if (neighbourhood(i, j) <= 3 && neighbourhood(i, j) >= 2 && prevField[i][j] == 1) 
+        } else if (neighbourhood(i, j) == 3 && neighbourhood(i, j) == 2 && prevField[i][j] == 1) 
 				{
                 field[i][j] = 1;
                 ctx.fillStyle = "#000";

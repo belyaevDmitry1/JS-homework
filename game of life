@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="600" height="600" style="border:5px solid #c3c3c3;">
+</canvas>
+
+
+<input type = 'button' value ='Stop' onClick = 'stop()'>
+<input type = 'button' value ='Start' onClick = 'start()'>
+
+
+<script>
+//let time = 
+let fieldSize = 30;
+let cellSize = 20;
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "#FF0000";
+
+
+let prevField = new Array(fieldSize);
+let field = new Array(fieldSize);
+
+for(let i = 0; i < fieldSize; i++)
+{
+	prevField[i] = new Array(fieldSize);
+	field[i] = new Array(fieldSize);
+}
+
+for (let i = 0; i < fieldSize; i++)
+            for (let j = 0; j < fieldSize; j++) {
+                if (Math.random() > 0.3) {
+                    field[i][j] = 0;
+                    ctx.fillStyle = "#FFF";
+                    ctx.fillRect(i * cellSize, j * cellSize, cellSize, cellSize);
+                } else {
+                    field[i][j] = 1;
+                    ctx.fillStyle = "#000";
+                    ctx.fillRect(i * cellSize, j * cellSize, cellSize, cellSize);
+                }
+            }
+	
+function neighbourhood(a, b) 
+{
+    let count = -prevField[a][b];
+    for (let i = -1; i <= 1; i++)
+         for (let j = -1; j <= 1; j++) 
+             count += prevField[(fieldSize + i + a) % fieldSize][(fieldSize + j + b) % fieldSize];
+    return count;
+}
+
+
+function doStep() 
+{
+    for (let i = 0; i < fieldSize; i++)
+        for (let j = 0; j < fieldSize; j++) 
+		{
+            prevField[i][j] = field[i][j];
+        }
+    for (let i = 0; i < fieldSize; i++)
+        for (let j = 0; j < fieldSize; j++) 
+		{
+        if (neighbourhood(i, j) == 3 && prevField[i][j] == 0) 
+		{
+            field[i][j] = 1;
+            ctx.fillStyle = "#000";
+            ctx.fillRect(i * cellSize, j * cellSize, cellSize, cellSize);
+
+        } else if (neighbourhood(i, j) <= 3 && neighbourhood(i, j) >= 2 && prevField[i][j] == 1) 
+				{
+                field[i][j] = 1;
+                ctx.fillStyle = "#000";
+                ctx.fillRect(i * cellSize, j * cellSize, cellSize, cellSize);
+
+                } else 
+					{
+                        field[i][j] = 0;
+                        ctx.fillStyle = "#FFF";
+                        ctx.fillRect(i * cellSize, j * cellSize, cellSize, cellSize);
+
+                    }
+
+        }
+}
+function start() 
+{
+	tm = setInterval(doStep, 1000);
+}
+function stop()
+{
+	clearInterval(tm);
+}
+let tm = setInterval(doStep, 1000); 
+</script> 
+
+</body>
+</html>

@@ -30,7 +30,7 @@ for(let i = 0; i < fieldSize; i++)
 
 for (let i = 0; i < fieldSize; i++)
             for (let j = 0; j < fieldSize; j++) {
-                if (Math.random() > 0.3) {
+                if (Math.random() > 0.5) {
                     field[i][j] = 0;
                     ctx.fillStyle = "#FFF";
                     ctx.fillRect(i * cellSize, j * cellSize, cellSize, cellSize);
